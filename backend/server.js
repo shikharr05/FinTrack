@@ -34,6 +34,11 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 connectDB();//similar to how we used to connect DB just that code is written in config.
 
 app.use("/api/v1/auth", authRoutes); // this tells express whenever requests starts with /api/v1/auth forward it to authRoutes
+app.get("/api/test", (req, res) => {
+  res
+    .status(200)
+    .json({ message: "Hello from the test API! The route is working." });
+});
 app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/expense", expenseRoutes);
 app.use("/api/v1/dashboard", dashboardRoutes);
